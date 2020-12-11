@@ -4,4 +4,11 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Apply_job_details\" />
+    <Folder Include="Pages\Candidate_details\" />
+    <Folder Include="Pages\Employer_details\" />
+    <Folder Include="Pages\Job_details\" />
+  </ItemGroup>
+
 </Project>

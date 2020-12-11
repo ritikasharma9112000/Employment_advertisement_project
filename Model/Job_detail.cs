@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Employment_advertisement_project.Model
 {
     //This class display the job details under which it has job id, job role, job type, job salary, job description, employer id//
-    public class Job_details
+    public class Job_detail
     {
         public int ID { get; set; }
         public string Job_role { get; set; }
@@ -14,6 +14,6 @@ namespace Employment_advertisement_project.Model
         public decimal Job_salary { get; set; }
         public string Job_description { get; set; }
         public int Employer_id { get; set; }
-        public Employer_details Employer_obj { get; set; }
+        public Employer_detail Employer_obj { get; set; }
     }
 }
