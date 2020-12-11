@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Employment_advertisement_project.Data;
 
 namespace Employment_advertisement_project
 {
@@ -24,6 +26,9 @@ namespace Employment_advertisement_project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<EAPdatabase>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("EAPdatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
