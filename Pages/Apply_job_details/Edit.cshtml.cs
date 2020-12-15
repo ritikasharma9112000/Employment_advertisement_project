@@ -7,21 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Employment_advertisement_project.Data;
-using Employment_advertisement_project.Model;
+using Employment_advertisement_project.Models;
 
-namespace Employment_advertisement_project.Pages.Apply_job_details
+namespace Employment_advertisement_project.Pages.Apply_Job_Details
 {
     public class EditModel : PageModel
     {
-        private readonly Employment_advertisement_project.Data.EAPdatabase _context;
+        private readonly Employment_advertisement_project.Data.Employment_advertisementDatabase _context;
 
-        public EditModel(Employment_advertisement_project.Data.EAPdatabase context)
+        public EditModel(Employment_advertisement_project.Data.Employment_advertisementDatabase context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Apply_job_detail Apply_job_detail { get; set; }
+        public Apply_Job_Detail Apply_Job_Detail { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,16 @@ namespace Employment_advertisement_project.Pages.Apply_job_details
                 return NotFound();
             }
 
-            Apply_job_detail = await _context.Apply_job_detail.FirstOrDefaultAsync(m => m.ID == id);
+            Apply_Job_Detail = await _context.Apply_Job_Detail
+                .Include(a => a.Candidate_Detail)
+                .Include(a => a.Job_Detail).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Apply_job_detail == null)
+            if (Apply_Job_Detail == null)
             {
                 return NotFound();
             }
+           ViewData["Candidate_DetailId"] = new SelectList(_context.Candidate_Detail, "Id", "Mobile_no_of_candidate");
+           ViewData["Job_DetailId"] = new SelectList(_context.Job_Detail, "Id", "Id");
             return Page();
         }
 
@@ -48,7 +52,7 @@ namespace Employment_advertisement_project.Pages.Apply_job_details
                 return Page();
             }
 
-            _context.Attach(Apply_job_detail).State = EntityState.Modified;
+            _context.Attach(Apply_Job_Detail).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +60,7 @@ namespace Employment_advertisement_project.Pages.Apply_job_details
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Apply_job_detailExists(Apply_job_detail.ID))
+                if (!Apply_Job_DetailExists(Apply_Job_Detail.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +73,9 @@ namespace Employment_advertisement_project.Pages.Apply_job_details
             return RedirectToPage("./Index");
         }
 
-        private bool Apply_job_detailExists(int id)
+        private bool Apply_Job_DetailExists(int id)
         {
-            return _context.Apply_job_detail.Any(e => e.ID == id);
+            return _context.Apply_Job_Detail.Any(e => e.Id == id);
         }
     }
 }

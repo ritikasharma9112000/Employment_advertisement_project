@@ -1,5 +1,5 @@
 ﻿@page
-@model Employment_advertisement_project.Pages.Employer_details.IndexModel
+@model Employment_advertisement_project.Pages.Employer_Details.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,19 +14,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Employer_detail[0].Employer_name)
+                @Html.DisplayNameFor(model => model.Employer_Detail[0].Employer_name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employer_detail[0].Date_of_establishment)
+                @Html.DisplayNameFor(model => model.Employer_Detail[0].Date_of_establishment)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employer_detail[0].Address_of_employer)
+                @Html.DisplayNameFor(model => model.Employer_Detail[0].Address_of_employer)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Employer_detail) {
+@foreach (var item in Model.Employer_Detail) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Employer_name)
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.Address_of_employer)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

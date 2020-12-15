@@ -6,21 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Employment_advertisement_project.Data;
-using Employment_advertisement_project.Model;
+using Employment_advertisement_project.Models;
 
-namespace Employment_advertisement_project.Pages.Employer_details
+namespace Employment_advertisement_project.Pages.Employer_Details
 {
     public class DeleteModel : PageModel
     {
-        private readonly Employment_advertisement_project.Data.EAPdatabase _context;
+        private readonly Employment_advertisement_project.Data.Employment_advertisementDatabase _context;
 
-        public DeleteModel(Employment_advertisement_project.Data.EAPdatabase context)
+        public DeleteModel(Employment_advertisement_project.Data.Employment_advertisementDatabase context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Employer_detail Employer_detail { get; set; }
+        public Employer_Detail Employer_Detail { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace Employment_advertisement_project.Pages.Employer_details
                 return NotFound();
             }
 
-            Employer_detail = await _context.Employer_detail.FirstOrDefaultAsync(m => m.ID == id);
+            Employer_Detail = await _context.Employer_Detail.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Employer_detail == null)
+            if (Employer_Detail == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace Employment_advertisement_project.Pages.Employer_details
                 return NotFound();
             }
 
-            Employer_detail = await _context.Employer_detail.FindAsync(id);
+            Employer_Detail = await _context.Employer_Detail.FindAsync(id);
 
-            if (Employer_detail != null)
+            if (Employer_Detail != null)
             {
-                _context.Employer_detail.Remove(Employer_detail);
+                _context.Employer_Detail.Remove(Employer_Detail);
                 await _context.SaveChangesAsync();
             }
 

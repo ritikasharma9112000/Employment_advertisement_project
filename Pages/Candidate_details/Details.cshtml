@@ -1,5 +1,5 @@
 ﻿@page
-@model Employment_advertisement_project.Pages.Candidate_details.DetailsModel
+@model Employment_advertisement_project.Pages.Candidate_Details.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -8,36 +8,36 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Candidate_detail</h4>
+    <h4>Candidate_Detail</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Candidate_detail.Name_of_candidate)
+            @Html.DisplayNameFor(model => model.Candidate_Detail.Name_of_candidate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Candidate_detail.Name_of_candidate)
+            @Html.DisplayFor(model => model.Candidate_Detail.Name_of_candidate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Candidate_detail.DOB_of_candidate)
+            @Html.DisplayNameFor(model => model.Candidate_Detail.DOB_of_candidate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Candidate_detail.DOB_of_candidate)
+            @Html.DisplayFor(model => model.Candidate_Detail.DOB_of_candidate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Candidate_detail.Mobile_no_of_candidate)
+            @Html.DisplayNameFor(model => model.Candidate_Detail.Mobile_no_of_candidate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Candidate_detail.Mobile_no_of_candidate)
+            @Html.DisplayFor(model => model.Candidate_Detail.Mobile_no_of_candidate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Candidate_detail.Email_address_of_candidate)
+            @Html.DisplayNameFor(model => model.Candidate_Detail.Email_address_of_candidate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Candidate_detail.Email_address_of_candidate)
+            @Html.DisplayFor(model => model.Candidate_Detail.Email_address_of_candidate)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Candidate_detail.ID">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Candidate_Detail.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

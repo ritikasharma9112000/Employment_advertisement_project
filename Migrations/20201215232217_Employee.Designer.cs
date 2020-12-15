@@ -4,14 +4,16 @@ using Employment_advertisement_project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Employment_advertisement_project.Migrations
 {
-    [DbContext(typeof(EAPdatabase))]
-    partial class EAPdatabaseModelSnapshot : ModelSnapshot
+    [DbContext(typeof(Employment_advertisementDatabase))]
+    [Migration("20201215232217_Employee")]
+    partial class Employee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,44 +21,38 @@ namespace Employment_advertisement_project.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
-            modelBuilder.Entity("Employment_advertisement_project.Model.Apply_job_detail", b =>
+            modelBuilder.Entity("Employment_advertisement_project.Models.Apply_Job_Detail", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<int>("Candidate_DetailId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Candidate_availabilities")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Candidate_id")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Candidate_notice_period")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Candidate_objID")
+                    b.Property<int>("Job_DetailId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Job_id")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.Property<int?>("Job_objID")
-                        .HasColumnType("int");
+                    b.HasIndex("Candidate_DetailId");
 
-                    b.HasKey("ID");
+                    b.HasIndex("Job_DetailId");
 
-                    b.HasIndex("Candidate_objID");
-
-                    b.HasIndex("Job_objID");
-
-                    b.ToTable("Apply_job_detail");
+                    b.ToTable("Apply_Job_Detail");
                 });
 
-            modelBuilder.Entity("Employment_advertisement_project.Model.Candidate_detail", b =>
+            modelBuilder.Entity("Employment_advertisement_project.Models.Candidate_Detail", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -75,14 +71,14 @@ namespace Employment_advertisement_project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.ToTable("Candidate_detail");
+                    b.ToTable("Candidate_Detail");
                 });
 
-            modelBuilder.Entity("Employment_advertisement_project.Model.Employer_detail", b =>
+            modelBuilder.Entity("Employment_advertisement_project.Models.Employer_Detail", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -96,22 +92,19 @@ namespace Employment_advertisement_project.Migrations
                     b.Property<string>("Employer_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.ToTable("Employer_detail");
+                    b.ToTable("Employer_Detail");
                 });
 
-            modelBuilder.Entity("Employment_advertisement_project.Model.Job_detail", b =>
+            modelBuilder.Entity("Employment_advertisement_project.Models.Job_Detail", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Employer_id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Employer_objID")
+                    b.Property<int>("Employer_DetailId")
                         .HasColumnType("int");
 
                     b.Property<string>("Job_description")
@@ -126,35 +119,41 @@ namespace Employment_advertisement_project.Migrations
                     b.Property<string>("Job_type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("Employer_objID");
+                    b.HasIndex("Employer_DetailId");
 
-                    b.ToTable("Job_detail");
+                    b.ToTable("Job_Detail");
                 });
 
-            modelBuilder.Entity("Employment_advertisement_project.Model.Apply_job_detail", b =>
+            modelBuilder.Entity("Employment_advertisement_project.Models.Apply_Job_Detail", b =>
                 {
-                    b.HasOne("Employment_advertisement_project.Model.Candidate_detail", "Candidate_obj")
+                    b.HasOne("Employment_advertisement_project.Models.Candidate_Detail", "Candidate_Detail")
                         .WithMany()
-                        .HasForeignKey("Candidate_objID");
+                        .HasForeignKey("Candidate_DetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Employment_advertisement_project.Model.Job_detail", "Job_obj")
+                    b.HasOne("Employment_advertisement_project.Models.Job_Detail", "Job_Detail")
                         .WithMany()
-                        .HasForeignKey("Job_objID");
+                        .HasForeignKey("Job_DetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Candidate_obj");
+                    b.Navigation("Candidate_Detail");
 
-                    b.Navigation("Job_obj");
+                    b.Navigation("Job_Detail");
                 });
 
-            modelBuilder.Entity("Employment_advertisement_project.Model.Job_detail", b =>
+            modelBuilder.Entity("Employment_advertisement_project.Models.Job_Detail", b =>
                 {
-                    b.HasOne("Employment_advertisement_project.Model.Employer_detail", "Employer_obj")
+                    b.HasOne("Employment_advertisement_project.Models.Employer_Detail", "Employer_Detail")
                         .WithMany()
-                        .HasForeignKey("Employer_objID");
+                        .HasForeignKey("Employer_DetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Employer_obj");
+                    b.Navigation("Employer_Detail");
                 });
 #pragma warning restore 612, 618
         }

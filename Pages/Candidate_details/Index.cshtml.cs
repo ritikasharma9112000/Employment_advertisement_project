@@ -6,24 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Employment_advertisement_project.Data;
-using Employment_advertisement_project.Model;
+using Employment_advertisement_project.Models;
 
-namespace Employment_advertisement_project.Pages.Candidate_details
+namespace Employment_advertisement_project.Pages.Candidate_Details
 {
     public class IndexModel : PageModel
     {
-        private readonly Employment_advertisement_project.Data.EAPdatabase _context;
+        private readonly Employment_advertisement_project.Data.Employment_advertisementDatabase _context;
 
-        public IndexModel(Employment_advertisement_project.Data.EAPdatabase context)
+        public IndexModel(Employment_advertisement_project.Data.Employment_advertisementDatabase context)
         {
             _context = context;
         }
 
-        public IList<Candidate_detail> Candidate_detail { get;set; }
+        public IList<Candidate_Detail> Candidate_Detail { get;set; }
 
         public async Task OnGetAsync()
         {
-            Candidate_detail = await _context.Candidate_detail.ToListAsync();
+            Candidate_Detail = await _context.Candidate_Detail.ToListAsync();
         }
     }
 }

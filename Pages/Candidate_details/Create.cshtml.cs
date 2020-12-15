@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Employment_advertisement_project.Data;
-using Employment_advertisement_project.Model;
+using Employment_advertisement_project.Models;
 
-namespace Employment_advertisement_project.Pages.Candidate_details
+namespace Employment_advertisement_project.Pages.Candidate_Details
 {
     public class CreateModel : PageModel
     {
-        private readonly Employment_advertisement_project.Data.EAPdatabase _context;
+        private readonly Employment_advertisement_project.Data.Employment_advertisementDatabase _context;
 
-        public CreateModel(Employment_advertisement_project.Data.EAPdatabase context)
+        public CreateModel(Employment_advertisement_project.Data.Employment_advertisementDatabase context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace Employment_advertisement_project.Pages.Candidate_details
         }
 
         [BindProperty]
-        public Candidate_detail Candidate_detail { get; set; }
+        public Candidate_Detail Candidate_Detail { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace Employment_advertisement_project.Pages.Candidate_details
                 return Page();
             }
 
-            _context.Candidate_detail.Add(Candidate_detail);
+            _context.Candidate_Detail.Add(Candidate_Detail);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -6,21 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Employment_advertisement_project.Data;
-using Employment_advertisement_project.Model;
+using Employment_advertisement_project.Models;
 
 namespace Employment_advertisement_project.Pages.Job_details
 {
     public class DeleteModel : PageModel
     {
-        private readonly Employment_advertisement_project.Data.EAPdatabase _context;
+        private readonly Employment_advertisement_project.Data.Employment_advertisementDatabase _context;
 
-        public DeleteModel(Employment_advertisement_project.Data.EAPdatabase context)
+        public DeleteModel(Employment_advertisement_project.Data.Employment_advertisementDatabase context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Job_detail Job_detail { get; set; }
+        public Job_Detail Job_Detail { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,10 @@ namespace Employment_advertisement_project.Pages.Job_details
                 return NotFound();
             }
 
-            Job_detail = await _context.Job_detail.FirstOrDefaultAsync(m => m.ID == id);
+            Job_Detail = await _context.Job_Detail
+                .Include(j => j.Employer_Detail).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Job_detail == null)
+            if (Job_Detail == null)
             {
                 return NotFound();
             }
@@ -45,11 +46,11 @@ namespace Employment_advertisement_project.Pages.Job_details
                 return NotFound();
             }
 
-            Job_detail = await _context.Job_detail.FindAsync(id);
+            Job_Detail = await _context.Job_Detail.FindAsync(id);
 
-            if (Job_detail != null)
+            if (Job_Detail != null)
             {
-                _context.Job_detail.Remove(Job_detail);
+                _context.Job_Detail.Remove(Job_Detail);
                 await _context.SaveChangesAsync();
             }
 

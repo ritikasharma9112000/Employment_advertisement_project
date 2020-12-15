@@ -7,21 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Employment_advertisement_project.Data;
-using Employment_advertisement_project.Model;
+using Employment_advertisement_project.Models;
 
-namespace Employment_advertisement_project.Pages.Employer_details
+namespace Employment_advertisement_project.Pages.Employer_Details
 {
     public class EditModel : PageModel
     {
-        private readonly Employment_advertisement_project.Data.EAPdatabase _context;
+        private readonly Employment_advertisement_project.Data.Employment_advertisementDatabase _context;
 
-        public EditModel(Employment_advertisement_project.Data.EAPdatabase context)
+        public EditModel(Employment_advertisement_project.Data.Employment_advertisementDatabase context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Employer_detail Employer_detail { get; set; }
+        public Employer_Detail Employer_Detail { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace Employment_advertisement_project.Pages.Employer_details
                 return NotFound();
             }
 
-            Employer_detail = await _context.Employer_detail.FirstOrDefaultAsync(m => m.ID == id);
+            Employer_Detail = await _context.Employer_Detail.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Employer_detail == null)
+            if (Employer_Detail == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace Employment_advertisement_project.Pages.Employer_details
                 return Page();
             }
 
-            _context.Attach(Employer_detail).State = EntityState.Modified;
+            _context.Attach(Employer_Detail).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Employment_advertisement_project.Pages.Employer_details
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Employer_detailExists(Employer_detail.ID))
+                if (!Employer_DetailExists(Employer_Detail.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Employment_advertisement_project.Pages.Employer_details
             return RedirectToPage("./Index");
         }
 
-        private bool Employer_detailExists(int id)
+        private bool Employer_DetailExists(int id)
         {
-            return _context.Employer_detail.Any(e => e.ID == id);
+            return _context.Employer_Detail.Any(e => e.Id == id);
         }
     }
 }
