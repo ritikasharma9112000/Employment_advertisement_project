@@ -9,25 +9,26 @@
 
 <h4>Apply_Job_Detail</h4>
 <hr />
+<!--Code to link the candidate detail table with the apply job-->
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Candidate_DetailId" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Candidate_DetailId" class="control-label">Candidate Detail</label>
                 <select asp-for="Apply_Job_Detail.Candidate_DetailId" class ="form-control" asp-items="ViewBag.Candidate_DetailId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Job_DetailId" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Job_DetailId" class="control-label">Job Detail Id</label>
                 <select asp-for="Apply_Job_Detail.Job_DetailId" class ="form-control" asp-items="ViewBag.Job_DetailId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Candidate_availabilities" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Candidate_availabilities" class="control-label">Candidate availabilities</label>
                 <input asp-for="Apply_Job_Detail.Candidate_availabilities" class="form-control" />
                 <span asp-validation-for="Apply_Job_Detail.Candidate_availabilities" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Candidate_notice_period" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Candidate_notice_period" class="control-label">Candidate notice period</label>
                 <input asp-for="Apply_Job_Detail.Candidate_notice_period" class="form-control" />
                 <span asp-validation-for="Apply_Job_Detail.Candidate_notice_period" class="text-danger"></span>
             </div>

@@ -37,7 +37,7 @@ namespace Employment_advertisement_project.Pages.Job_details
             {
                 return NotFound();
             }
-           ViewData["Employer_DetailId"] = new SelectList(_context.Employer_Detail, "Id", "Id");
+           ViewData["Employer_DetailId"] = new SelectList(_context.Employer_Detail, "Id", "Employer_name");
             return Page();
         }
 

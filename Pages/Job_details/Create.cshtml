@@ -14,27 +14,27 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Job_Detail.Job_role" class="control-label"></label>
+                <label asp-for="Job_Detail.Job_role" class="control-label">Job role</label>
                 <input asp-for="Job_Detail.Job_role" class="form-control" />
                 <span asp-validation-for="Job_Detail.Job_role" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Job_Detail.Job_type" class="control-label"></label>
+                <label asp-for="Job_Detail.Job_type" class="control-label">Job type</label>
                 <input asp-for="Job_Detail.Job_type" class="form-control" />
                 <span asp-validation-for="Job_Detail.Job_type" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Job_Detail.Job_salary" class="control-label"></label>
+                <label asp-for="Job_Detail.Job_salary" class="control-label">Job salary</label>
                 <input asp-for="Job_Detail.Job_salary" class="form-control" />
                 <span asp-validation-for="Job_Detail.Job_salary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Job_Detail.Job_description" class="control-label"></label>
+                <label asp-for="Job_Detail.Job_description" class="control-label">Job description</label>
                 <input asp-for="Job_Detail.Job_description" class="form-control" />
                 <span asp-validation-for="Job_Detail.Job_description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Job_Detail.Employer_DetailId" class="control-label"></label>
+                <label asp-for="Job_Detail.Employer_DetailId" class="control-label">Employer Detail Id</label>
                 <select asp-for="Job_Detail.Employer_DetailId" class ="form-control" asp-items="ViewBag.Employer_DetailId"></select>
             </div>
             <div class="form-group">

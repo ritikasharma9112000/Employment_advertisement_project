@@ -15,22 +15,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Apply_Job_Detail.Id" />
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Candidate_DetailId" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Candidate_DetailId" class="control-label">Candidate Detail Id</label>
                 <select asp-for="Apply_Job_Detail.Candidate_DetailId" class="form-control" asp-items="ViewBag.Candidate_DetailId"></select>
                 <span asp-validation-for="Apply_Job_Detail.Candidate_DetailId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Job_DetailId" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Job_DetailId" class="control-label">Job Detail Id</label>
                 <select asp-for="Apply_Job_Detail.Job_DetailId" class="form-control" asp-items="ViewBag.Job_DetailId"></select>
                 <span asp-validation-for="Apply_Job_Detail.Job_DetailId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Candidate_availabilities" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Candidate_availabilities" class="control-label">Candidate availabilities</label>
                 <input asp-for="Apply_Job_Detail.Candidate_availabilities" class="form-control" />
                 <span asp-validation-for="Apply_Job_Detail.Candidate_availabilities" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Apply_Job_Detail.Candidate_notice_period" class="control-label"></label>
+                <label asp-for="Apply_Job_Detail.Candidate_notice_period" class="control-label">Candidate notice period</label>
                 <input asp-for="Apply_Job_Detail.Candidate_notice_period" class="form-control" />
                 <span asp-validation-for="Apply_Job_Detail.Candidate_notice_period" class="text-danger"></span>
             </div>

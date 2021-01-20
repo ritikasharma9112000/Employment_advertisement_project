@@ -21,8 +21,8 @@ namespace Employment_advertisement_project.Pages.Apply_Job_Details
 
         public IActionResult OnGet()
         {
-        ViewData["Candidate_DetailId"] = new SelectList(_context.Candidate_Detail, "Id", "Mobile_no_of_candidate");
-        ViewData["Job_DetailId"] = new SelectList(_context.Job_Detail, "Id", "Id");
+        ViewData["Candidate_DetailId"] = new SelectList(_context.Candidate_Detail, "Id", "Name_of_candidate");
+        ViewData["Job_DetailId"] = new SelectList(_context.Job_Detail, "Id", "Job_role");
             return Page();
         }
 
