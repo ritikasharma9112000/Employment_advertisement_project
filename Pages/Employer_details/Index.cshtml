@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<!--code to display the database on the home page of employer details table by clicking on it-->
 <h1>Index</h1>
 
 <p>
@@ -17,7 +17,7 @@
                 Employer name
             </th>
             <th>
-              Date of establishment
+                Date of establishment
             </th>
             <th>
                 Address of employer
@@ -26,23 +26,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Employer_Detail) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employer_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date_of_establishment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address_of_employer)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Employer_Detail)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employer_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_of_establishment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address_of_employer)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
