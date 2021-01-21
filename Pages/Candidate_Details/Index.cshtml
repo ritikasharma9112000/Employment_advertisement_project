@@ -1,10 +1,10 @@
 ﻿@page
-@model Employment_advertisement_project.Pages.Apply_Job_Details.IndexModel
+@model Employment_advertisement_project.Pages.Candidate_Details.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
-<!--code to show the home page of the apply job details table by clicking on it-->
+<!--code to display the database on the home page of candidate details table by clicking on it-->
 
 <h1>Index</h1>
 
@@ -15,34 +15,34 @@
     <thead>
         <tr>
             <th>
-               Candidate Detail
+              Name of candidate
             </th>
             <th>
-              Job Detail
+                DOB of candidate
             </th>
             <th>
-             Candidate availabilities
+                Mobile no of candidate
             </th>
             <th>
-               Candidate notice period
+                Email address of candidate
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Apply_Job_Detail) {
+@foreach (var item in Model.Candidate_Detail) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Candidate_Detail.Name_of_candidate)
+                @Html.DisplayFor(modelItem => item.Name_of_candidate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Job_Detail.Job_role)
+                @Html.DisplayFor(modelItem => item.DOB_of_candidate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Candidate_availabilities)
+                @Html.DisplayFor(modelItem => item.Mobile_no_of_candidate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Candidate_notice_period)
+                @Html.DisplayFor(modelItem => item.Email_address_of_candidate)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

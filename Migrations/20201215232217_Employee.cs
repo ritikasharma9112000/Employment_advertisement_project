@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Employment_advertisement_project.Migrations
@@ -103,6 +104,11 @@ namespace Employment_advertisement_project.Migrations
                 name: "IX_Job_Detail_Employer_DetailId",
                 table: "Job_Detail",
                 column: "Employer_DetailId");
+
+            //Code to connect the sql file or database tables with the project
+
+            var sqlFile = Path.Combine(".\\DataScript", @"Data.sql");
+            migrationBuilder.Sql(File.ReadAllText(sqlFile));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

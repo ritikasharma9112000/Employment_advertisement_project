@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Employment_advertisement_project.Models
-{ //This class display the apply job details under which it has apply job id, candidate id, job id, candidate availabilities, candidate notice period//
+{
+    //This class display the apply job details under which it has apply job id, candidate id, job id, candidate availabilities, candidate notice period
     public class Apply_Job_Detail
     {
         

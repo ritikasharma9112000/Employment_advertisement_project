@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Employment_advertisement_project.Models
 
-{   //This class display the employer details under which it has employer id, employerdate of establishment, address of employer//
+{ 
+    //This class display the employer details under which it has employer id, employerdate of establishment, address of employer
     public class Employer_Detail
    
     {

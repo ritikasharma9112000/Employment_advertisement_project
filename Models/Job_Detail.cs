@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Employment_advertisement_project.Models
 
 {
-    //This class display the job details under which it has job id, job role, job type, job salary, job description, employer id//
+    //This class display the job details under which it has job id, job role, job type, job salary, job description, employer id
     public class Job_Detail
     {
         public int Id { get; set; }

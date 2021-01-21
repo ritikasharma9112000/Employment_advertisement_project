@@ -1,0 +1,45 @@
+﻿@page
+@model Employment_advertisement_project.Pages.Employer_Details.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<!--code to create the database in employer details table-->
+
+<h1>Create</h1>
+
+<h4>Employer_Detail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Employer_Detail.Employer_name" class="control-label">Employer name</label>
+                <input asp-for="Employer_Detail.Employer_name" class="form-control" />
+                <span asp-validation-for="Employer_Detail.Employer_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employer_Detail.Date_of_establishment" class="control-label">Date of establishment</label>
+                <input asp-for="Employer_Detail.Date_of_establishment" class="form-control" />
+                <span asp-validation-for="Employer_Detail.Date_of_establishment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employer_Detail.Address_of_employer" class="control-label">Address of employer</label>
+                <input asp-for="Employer_Detail.Address_of_employer" class="form-control" />
+                <span asp-validation-for="Employer_Detail.Address_of_employer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
