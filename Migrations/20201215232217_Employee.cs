@@ -107,7 +107,7 @@ namespace Employment_advertisement_project.Migrations
 
             //Code to connect the sql file or database tables with the project
 
-            var sqlFile = Path.Combine(".\\DataScript", @"Data.sql");
+            var sqlFile = Path.Combine(".\\Datascript", @"Data.sql");
             migrationBuilder.Sql(File.ReadAllText(sqlFile));
         }
 
